@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#header{
+  background-color: white;
+  padding-left: 50px;
+  padding-top: 35px;
+}
+.first-segment{
+  background-color: #F2F0F1;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+p{
+  font-size: 10px;
+}
+p.brand{
+  margin-top: 0px;
+}
+.vl {
+  border-left: 1px solid rgb(204, 200, 200);
+  height: 64px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+#shop-now{
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 25px;
+  margin-bottom: 24px;
+}
+#card-design{
+  margin: 30px;
+  border: none;
+}
+#card-body-design{
+  background-color: white;
+}
