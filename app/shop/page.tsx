@@ -22,7 +22,7 @@ const Shop = () => {
   return (
     <div>
       Shop
-      <div className="flex" style={{ justifyContent: "center" }}>
+      <div className="flex" style={{ margin: "17px" }}>
         {product.map(({ id, title, image, price }) => (
           <Link key={id} href={`shop/${id}`}>
             <div
