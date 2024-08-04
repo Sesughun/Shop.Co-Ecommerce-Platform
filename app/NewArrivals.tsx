@@ -32,7 +32,7 @@ const NewArrivals = () => {
               id="card-design"
               style={{ width: "250px", height: "400px" }}
             >
-              <div className="card-body">
+              <div className="card-body" style={{ backgroundColor: "#F2F0F1" }}>
                 <img
                   src={image}
                   alt={title}

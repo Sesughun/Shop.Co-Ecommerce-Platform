@@ -48,7 +48,11 @@ const ProductDetailPage = ({ params: { id } }: Props) => {
         <img
           src={product.image}
           alt={product.title}
-          style={{ maxWidth: "200px", maxHeight: "300px" }}
+          style={{
+            maxWidth: "200px",
+            maxHeight: "300px",
+            backgroundColor: "#F2F0F1",
+          }}
         />
       </div>
       <div style={{ padding: "2rem" }}>
