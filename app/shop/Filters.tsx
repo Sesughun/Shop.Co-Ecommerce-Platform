@@ -1,5 +1,5 @@
 "use client";
-
+interface Filter {}
 const Filters = () => {
   return (
     <div className="card ml-3">
