@@ -11,7 +11,7 @@ const NewArrivals = () => {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/category/electronics?limit=4")
+    fetch("https://fakestoreapi.com/products/category/jewelery?limit=4")
       .then((res) => res.json())
       .then((json) => setProduct(json));
   }, []);
