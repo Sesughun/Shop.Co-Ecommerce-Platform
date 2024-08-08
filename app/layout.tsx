@@ -19,11 +19,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div id="header" className="flex">
-          <h2 style={{ marginLeft: "25px" }}>SHOP.CO</h2>
-          <div>Shop</div>
-          <div>On Sale</div>
-          <div>New Arrivals</div>
-          <div>Brands</div>
+          <h2 style={{ marginRight: "25px" }}>SHOP.CO</h2>
+          <div style={{ marginRight: "25px" }}>Shop</div>
+          <div style={{ marginRight: "25px" }}>On Sale</div>
+          <div style={{ marginRight: "25px" }}>New Arrivals</div>
+          <div style={{ marginRight: "25px" }}>Brands</div>
           <div></div>
         </div>
         {children}
