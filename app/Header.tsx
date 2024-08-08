@@ -5,9 +5,21 @@ const Header = () => {
   return (
     <div id="header" className="flex">
       <h2 style={{ marginRight: "25px" }}>
-        <Link href="/">SHOP.CO</Link>
+        <a
+          style={{ textDecoration: "none", color: "inherit", outline: "none" }}
+          href="/"
+        >
+          SHOP.CO
+        </a>
       </h2>
-      <div style={{ marginRight: "25px" }}>Shop</div>
+      <div style={{ marginRight: "25px" }}>
+        <a
+          style={{ textDecoration: "none", color: "inherit", outline: "none" }}
+          href="/shop"
+        >
+          Shop
+        </a>
+      </div>
       <div style={{ marginRight: "25px" }}>On Sale</div>
       <div style={{ marginRight: "25px" }}>New Arrivals</div>
       <div style={{ marginRight: "25px" }}>Brands</div>

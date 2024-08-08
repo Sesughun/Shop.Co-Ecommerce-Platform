@@ -23,7 +23,7 @@ const Shop = () => {
       <h2 className="ml-4">Shop</h2>
       <div className="flex">
         <div>
-          <Filters></Filters>
+          <Filters />
         </div>
 
         <div className="flex spacings" style={{ margin: "17px" }}>

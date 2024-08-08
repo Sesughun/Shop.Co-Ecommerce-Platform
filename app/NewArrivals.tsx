@@ -16,7 +16,7 @@ const NewArrivals = () => {
       .then((json) => setProduct(json));
   }, []);
   if (!product) {
-    return <div>Loading...</div>;
+    return <div className="spinner-border"></div>;
   }
 
   return (
