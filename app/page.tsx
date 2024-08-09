@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import NewArrivals from "./NewArrivals";
 import TopSelling from "./TopSelling";
 import ShopNow from "./ShopNow";
-import { Suspense } from "react";
+
 export default function Home() {
   return (
     <div className="body">
@@ -40,23 +40,21 @@ export default function Home() {
                 </div>
               </div>
             </td>
-            <td></td>
           </tr>
         </tbody>
       </table>
-      <Suspense fallback="Loading...">
-        <NewArrivals />
-        <hr
-          style={{
-            marginTop: "50px",
-            marginLeft: "100px",
-            marginRight: "100px",
-          }}
-        />
-      </Suspense>
-      <Suspense fallback="Loading...">
-        <TopSelling />
-      </Suspense>
+
+      <NewArrivals />
+      <hr
+        style={{
+          marginTop: "50px",
+          marginLeft: "100px",
+          marginRight: "100px",
+        }}
+      />
+
+      <TopSelling />
+
       <hr
         style={{ marginTop: "50px", marginLeft: "100px", marginRight: "100px" }}
       />

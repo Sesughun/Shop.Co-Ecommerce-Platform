@@ -11,6 +11,7 @@ const Footer = () => {
           borderRadius: "15px",
           paddingTop: "55px",
         }}
+        className="m-4"
       >
         <div style={{ padding: "25px" }}>
           <table>

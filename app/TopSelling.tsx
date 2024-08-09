@@ -31,7 +31,7 @@ const TopSelling = () => {
       >
         Top Selling
       </h1>
-      <div className="flex" style={{ justifyContent: "center" }}>
+      <div className="flex flex-wrap" style={{ justifyContent: "center" }}>
         {product.map(({ id, title, image, price }) => (
           <Link key={id} href={`shop/${id}`}>
             <div

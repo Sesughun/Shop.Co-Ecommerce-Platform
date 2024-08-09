@@ -31,7 +31,7 @@ const ProductDetailPage = ({ params: { id } }: Props) => {
       .then((json) => setProduct(json));
   }, []);
   if (!product) {
-    return <div>Loading...</div>;
+    return <div className="spinner-border"></div>;
   }
   const myStyles = {
     itemShapes: ThinStar,
@@ -41,7 +41,7 @@ const ProductDetailPage = ({ params: { id } }: Props) => {
 
   return (
     <div
-      className="flex p-5"
+      className="flex p-2 m-4"
       style={{ border: "solid gray", borderRadius: "15px" }}
     >
       <div>

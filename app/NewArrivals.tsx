@@ -9,22 +9,35 @@ interface Props {
 }
 const NewArrivals = () => {
   const [product, setProduct] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/category/jewelery?limit=4")
       .then((res) => res.json())
       .then((json) => setProduct(json));
+    setLoading(false);
   }, []);
-  if (!product) {
-    return <div className="spinner-border"></div>;
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "50px",
+        }}
+      >
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div>
+    <div id="#new-arrival">
       <h1 style={{ textAlign: "center", marginTop: "25px", fontSize: "50px" }}>
         New Arrivals
       </h1>
-      <div className="flex" style={{ justifyContent: "center" }}>
+      <div className="flex flex-wrap" style={{ justifyContent: "center" }}>
         {product.map(({ id, title, image, price }) => (
           <Link key={id} href={`shop/${id}`}>
             <div

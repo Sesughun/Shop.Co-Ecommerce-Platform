@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Link from "next/link";
 import Filters from "./Filters";
@@ -12,12 +12,21 @@ interface Props {
 
 const Shop = () => {
   const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => setProduct(json));
+    setLoading(false);
   }, []);
-
+  if (loading) {
+    return (
+      <>
+        <div className="spinner-border"></div>
+        <span>Loading</span>
+      </>
+    );
+  }
   return (
     <div>
       <h2 className="ml-4">Shop</h2>
@@ -26,35 +35,33 @@ const Shop = () => {
           <Filters />
         </div>
 
-        <div className="flex spacings" style={{ margin: "17px" }}>
-          <Suspense fallback="Loading...">
-            {product.map(({ id, title, image, price }) => (
-              <Link key={id} href={`shop/${id}`}>
+        <div className="flex flex-wrap m-1/2">
+          {product.map(({ id, title, image, price }) => (
+            <Link key={id} href={`shop/${id}`}>
+              <div
+                className="card"
+                id="card-design"
+                style={{ width: "250px", height: "400px" }}
+                key={id}
+              >
                 <div
-                  className="card"
-                  id="card-design"
-                  style={{ width: "250px", height: "400px" }}
-                  key={id}
+                  className="card-body"
+                  style={{ backgroundColor: "#F2F0F1" }}
                 >
-                  <div
-                    className="card-body"
-                    style={{ backgroundColor: "#F2F0F1" }}
-                  >
-                    <img
-                      src={image}
-                      alt={title}
-                      style={{ width: "240px", height: "300px", zIndex: "1" }}
-                    ></img>
-                  </div>
-
-                  <div id="card-body-design" className="card-footer">
-                    <b>{title}</b>
-                    <br />${price}
-                  </div>
+                  <img
+                    src={image}
+                    alt={title}
+                    style={{ width: "240px", height: "300px", zIndex: "1" }}
+                  ></img>
                 </div>
-              </Link>
-            ))}
-          </Suspense>
+
+                <div id="card-body-design" className="card-footer">
+                  <b>{title}</b>
+                  <br />${price}
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
