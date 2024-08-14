@@ -9,10 +9,23 @@ interface Props {
     id: number;
   };
 }
-
+// interface Product {
+//   id: number;
+//   title: string;
+//   price: number;
+//   description: string;
+//   category: string;
+//   image: string;
+//   rating: {
+//     rate: number;
+//     count: number;
+//   };
+// }
 const Shop = () => {
   const [product, setProduct] = useState([]);
+
   const [loading, setLoading] = useState(true);
+  // const [selectedCategory, setSelectedCategory] = useState();
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
@@ -27,6 +40,10 @@ const Shop = () => {
       </>
     );
   }
+  // const filteredProducts =
+  //   selectedCategory === "All"
+  //     ? product
+  //     : product.filter((product) => product.category === selectedCategory);
   return (
     <div>
       <h2 className="ml-4">Shop</h2>
@@ -41,7 +58,11 @@ const Shop = () => {
               <div
                 className="card"
                 id="card-design"
-                style={{ width: "250px", height: "400px" }}
+                style={{
+                  width: "250px",
+                  height: "400px",
+                  borderRadius: "20px",
+                }}
                 key={id}
               >
                 <div
