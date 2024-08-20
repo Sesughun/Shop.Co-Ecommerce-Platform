@@ -20,9 +20,9 @@ const CartItems = () => {
 
   return (
     <div className=" p-4 text-slate-950 divide-y" style={{}}>
-      {cart.map((item: Product) => (
-        <div>
-          <div key={item.id} className="p-2 flex justify-between">
+      {cart.map((item: Product, index: number) => (
+        <div key={index}>
+          <div className="p-2 flex justify-between">
             <div className="flex flex-wrap gap-2">
               <div className="border-1 border-slate-200 flex-shrink-0 p-2 rounded-3xl">
                 <img
