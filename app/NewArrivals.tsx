@@ -37,15 +37,14 @@ const NewArrivals = () => {
       <h1 style={{ textAlign: "center", marginTop: "25px", fontSize: "50px" }}>
         New Arrivals
       </h1>
-      <div className="flex flex-wrap" style={{ justifyContent: "center" }}>
+      <div
+        className="flex flex-wrap gap-2"
+        style={{ justifyContent: "center" }}
+      >
         {product.map(({ id, title, image, price }) => (
           <Link key={id} href={`shop/${id}`}>
-            <div
-              className="card"
-              id="card-design"
-              style={{ width: "250px", height: "400px" }}
-            >
-              <div className="card-body" style={{ backgroundColor: "#F2F0F1" }}>
+            <div className="card" id="card-design" style={{ width: "250px" }}>
+              <div className="card-body">
                 <img
                   src={image}
                   alt={title}
@@ -54,8 +53,9 @@ const NewArrivals = () => {
               </div>
 
               <div id="card-body-design" className="card-footer">
-                <b>{title}</b>
-                <br />${price}
+                {title}
+                <br />
+                <b>${price}</b>
               </div>
             </div>
           </Link>
