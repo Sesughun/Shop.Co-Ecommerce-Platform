@@ -31,13 +31,13 @@ p.brand{
   border-radius: 25px;
   margin-bottom: 24px;
 }
-#card-design{
+/* #card-design{
   margin-left: 30px;
   border: none;
-}
-#card-body-design{
+} */
+/* #card-body-design{
   background-color: white;
-}
+} */
 .spacings{
   display: grid;
     grid-template-columns: repeat(3,auto); 

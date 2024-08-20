@@ -14,44 +14,42 @@ const Footer = () => {
         className="m-4"
       >
         <div style={{ padding: "25px" }}>
-          <div className="grid grid-cols-6 gap-2">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-3.5">
             <div className="col-span-2">
               <h4>SHOP.CO</h4>
-              <p>
+              <p className="text-xs">
                 We have products that suit your style and personality that make
                 you more of yourself.
               </p>
               <span>Social Media stuff</span>
             </div>
             <div>
-              <h6 style={{ width: "15%" }} className="break-word">
-                COMPANY
-              </h6>
-              <p>About</p>
-              <p>Features</p>
-              <p>Works</p>
-              <p>Career</p>
+              <h6 className="break-words">COMPANY</h6>
+              <p className="text-xs">About</p>
+              <p className="text-xs">Features</p>
+              <p className="text-xs">Works</p>
+              <p className="text-xs">Career</p>
             </div>
             <div>
               <h6>HELP</h6>
-              <p>Customer Support</p>
-              <p>Delivery Details</p>
-              <p>Terms & Conditions</p>
-              <p>Privacy Policy</p>
+              <p className="text-xs">Customer Support</p>
+              <p className="text-xs">Delivery Details</p>
+              <p className="text-xs">Terms & Conditions</p>
+              <p className="text-xs">Privacy Policy</p>
             </div>
             <div>
               <h6>FAQ</h6>
-              <p>Account</p>
-              <p>Manage Deliveries</p>
-              <p>Orders</p>
-              <p>Payments</p>
+              <p className="text-xs">Account</p>
+              <p className="text-xs">Manage Deliveries</p>
+              <p className="text-xs">Orders</p>
+              <p className="text-xs">Payments</p>
             </div>
             <div>
-              <h6>RESOURCES</h6>
-              <p>Free eBooks</p>
-              <p>Development Tutorial</p>
-              <p>How to-Blog</p>
-              <p>Youtube Playlist</p>
+              <h6 className="break-words">RESOURCES</h6>
+              <p className="text-xs break-words">Free eBooks</p>
+              <p className="text-xs break-words">Development Tutorial</p>
+              <p className="text-xs">How to-Blog</p>
+              <p className="text-xs">Youtube Playlist</p>
             </div>
           </div>
         </div>

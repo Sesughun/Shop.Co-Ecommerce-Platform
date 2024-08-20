@@ -32,10 +32,10 @@ const Header = () => {
       <div className="p-1" style={{ marginRight: "15px" }}>
         Brands
       </div>
-      <div>
-        <Link href="/cart" className="bg-slate-200 p-1 rounded ml-auto">
-          <span className="p-0 m-0 text-xl">
-            🛒<span className="badge bg-secondary">0</span>
+      <div className="p-1">
+        <Link href="/cart">
+          <span className="p-1 m-0">
+            Cart<span className="badge bg-secondary">0</span>
           </span>
         </Link>
       </div>
