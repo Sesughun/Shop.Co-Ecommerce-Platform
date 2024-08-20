@@ -5,7 +5,7 @@ import { Rating, ThinStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Counter from "./Counter";
-import AddToCart from "./AddToCart";
+import AddToCart from "../../AddToCart";
 
 interface Props {
   params: { id: number };
@@ -41,7 +41,7 @@ const ProductDetailPage = ({ params: { id } }: Props) => {
 
   return (
     <div
-      className="flex p-2 m-4"
+      className=" shadow-2xl flex divide-x divide-slate-300 p-2 m-4"
       style={{ border: "solid gray", borderRadius: "15px" }}
     >
       <div>
@@ -51,11 +51,11 @@ const ProductDetailPage = ({ params: { id } }: Props) => {
           style={{
             maxWidth: "200px",
             maxHeight: "300px",
-            backgroundColor: "#F2F0F1",
           }}
+          className="pr-3"
         />
       </div>
-      <div style={{ padding: "2rem" }}>
+      <div className="p-4">
         <h1>{product.title}</h1>
         <div className="flex">
           <Rating
@@ -69,14 +69,14 @@ const ProductDetailPage = ({ params: { id } }: Props) => {
           </span>
         </div>
         <h3>${product.price}</h3>
-        <p>{product.description}</p>
+        <p className="break-words">{product.description}</p>
         <hr></hr>
         <div className="flex">
           <div style={{ width: "30%", margin: "5px" }}>
             <Counter />
           </div>
           <div style={{ width: "70%", margin: "5px" }}>
-            <AddToCart />
+            <AddToCart product={product} />
           </div>
         </div>
       </div>

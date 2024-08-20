@@ -17,19 +17,15 @@ const Counter = () => {
         border: "solid gray",
         backgroundColor: "grey",
         borderRadius: "12px",
-        padding: ".25rem",
+        padding: "1.25rem",
         justifyContent: "center",
         alignContent: "center",
       }}
-      className="flex"
+      className="flex gap-3"
     >
-      <button style={{ padding: ".5rem" }} onClick={handleDecrement}>
-        -
-      </button>
-      <div style={{ padding: "1rem" }}>{count}</div>
-      <button style={{ padding: ".5rem" }} onClick={handleIncrement}>
-        +
-      </button>
+      <button onClick={handleDecrement}>-</button>
+      <div>{count}</div>
+      <button onClick={handleIncrement}>+</button>
     </div>
   );
 };
