@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-const Counter = () => {
+const Counter = ({onChange}:{onChange:Function}) => {
   const [count, setCount] = useState(0);
 
   function handleDecrement() {
     setCount(count - 1);
+    onChange(count)
   }
 
   function handleIncrement() {
     setCount(count + 1);
+    onChange(count)
   }
 
   return (

@@ -6,6 +6,7 @@ import "@smastrom/react-rating/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Counter from "./Counter";
 import AddToCart from "../../AddToCart";
+import cartStore from "@/app/store/cart";
 
 interface Props {
   params: { id: number };
@@ -24,6 +25,12 @@ interface Product {
 }
 const ProductDetailPage = ({ params: { id } }: Props) => {
   const [product, setProduct] = useState<Product | null>();
+  const [quantity, setQuantity] = useState<number>(0);
+
+  const addItem = cartStore((state: any) => state.addItem);
+  const handleAddItem = () => {
+    addItem({...product, quantity: quantity});
+  };
 
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/products/${id}`)
@@ -77,10 +84,10 @@ const ProductDetailPage = ({ params: { id } }: Props) => {
         <hr></hr>
         <div className="flex">
           <div style={{ width: "30%", margin: "5px" }}>
-            <Counter />
+            <Counter onChange={(e:any) => setQuantity(e)} />
           </div>
           <div style={{ width: "70%", margin: "5px" }}>
-            <AddToCart product={product} />
+            <AddToCart handleClick={handleAddItem}  />
           </div>
         </div>
       </div>

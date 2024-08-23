@@ -9,6 +9,8 @@ const cartStore = create((set) => ({
   count: 0,
 
   addItem: (item: any) => set((state: any) => {
+    console.log(item)
+    console.log(state)
     const updatedSubtotal = (Number(state.subtotal) + item.price).toFixed(2);
     const discountAmount = (updatedSubtotal * (20 / 100)).toFixed(2);  // 20% discount
     const discountedSubtotal = updatedSubtotal - parseFloat(discountAmount);
