@@ -20,9 +20,7 @@ interface CartItem {
 const AddToCart = ({ product }: CartItem) => {
   const addItem = cartStore((state: any) => state.addItem);
   const handleAddItem = () => {
-    const newItem = product;
-
-    addItem(newItem);
+    addItem(product);
   };
   return (
     <button
