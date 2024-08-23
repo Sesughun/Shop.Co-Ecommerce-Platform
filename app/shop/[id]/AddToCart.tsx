@@ -1,7 +1,29 @@
 "use client";
 import React from "react";
+import cartStore from "@/app/store/cart";
 
-const AddToCart = () => {
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+}
+interface Products {
+  product: Product;
+}
+const AddToCart = ({ product }: Products) => {
+  const addItem = cartStore((state: any) => state.addItem);
+  const handleAddItem = () => {
+    const newItem = product;
+    addItem(newItem);
+  };
+
   return (
     <button
       style={{
@@ -11,6 +33,7 @@ const AddToCart = () => {
         padding: "1.25rem",
         borderRadius: "12px",
       }}
+      onClick={handleAddItem}
     >
       AddToCart
     </button>

@@ -19,30 +19,30 @@ const CartItems = () => {
   const cart = cartStore((state: any) => state.cart);
 
   return (
-    <div className=" p-4 text-slate-950 divide-y" style={{}}>
-      {cart.map((item: Product, index: number) => (
-        <div key={index}>
-          <div className="p-2 flex justify-between">
-            <div className="flex flex-wrap gap-2">
-              <div className="border-1 border-slate-200 flex-shrink-0 p-2 rounded-3xl">
-                <img
-                  alt={item.title}
-                  src={item.image}
-                  style={{ maxWidth: "25px", maxHeight: "35px" }}
-                />
+    <div className="pulse">
+      <div className=" p-2 text-slate-950 divide-y">
+        {cart.map((item: Product) => (
+          <div key={item.id}>
+            <div className="p-2 flex justify-between">
+              <div className="flex gap-2">
+                <div className="border-1 border-slate-200 flex-wrap p-2 rounded-3xl">
+                  <img
+                    alt={item.title}
+                    src={item.image}
+                    style={{ maxWidth: "25px", maxHeight: "25px" }}
+                  />
+                </div>
+                <div className="mt-1 flex-shrink-1 w-3/4">
+                  <span className="ellipsis">{item.title}</span>
+                </div>
               </div>
-              <div className="mt-2 flex-shrink-1">
-                <h5 className="text-ellipsis overflow-hidden whitespace-nowrap">
-                  {item.title}
-                </h5>
+              <div className="mt-2">
+                <b>${item.price}</b>
               </div>
-            </div>
-            <div className="mt-2">
-              <b>${item.price}</b>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

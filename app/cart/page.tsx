@@ -1,46 +1,51 @@
+"use client";
 import React from "react";
 import CartItems from "./CartItems";
 import Apply from "./Apply";
 import Checkout from "./Checkout";
-
+import cartStore from "../store/cart";
 const Cart = () => {
+  const subtotal = cartStore((state: any) => state.subtotal);
+  const discount = cartStore((state: any) => state.discount);
+  const deliveryfee = cartStore((state: any) => state.deliveryfee);
+  const total = cartStore((state: any) => state.total);
   return (
     <div>
-      <h3 className="ml-5 ">CART</h3>
+      <h3 className="ml-5 mb-0">CART</h3>
       <div
-        className="p-1 m-4"
+        className="p-1 mx-4"
         style={{ border: " 2px solid gray", borderRadius: "10px" }}
       >
         <CartItems />
       </div>
       <div
-        className="p-3 mx-4"
+        className="p-3 mx-4 my-2"
         style={{ border: " 2px solid gray", borderRadius: "10px" }}
       >
         <h4>Order Summary</h4>
         <div className="flex justify-between">
           <span>Subtotal</span>
           <span>
-            <b>$500</b>
+            <b>${subtotal}</b>
           </span>
         </div>
         <div className="flex justify-between">
           <span>Discount(-20%)</span>
           <span>
-            <b>$200</b>
+            <b>${discount}</b>
           </span>
         </div>
         <div className="flex justify-between">
           <span>Delivery Fee</span>
           <span>
-            <b>$300</b>
+            <b>${deliveryfee}</b>
           </span>
         </div>
         <hr></hr>
         <div className="flex justify-between">
           <span>Total</span>
           <span className="text-2xl">
-            <b>$500</b>
+            <b>${total}</b>
           </span>
         </div>
         <div>

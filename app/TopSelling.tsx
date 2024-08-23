@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import Link from "next/link";
+import Product from "./Product";
 
 interface Props {
   params: {
@@ -10,13 +10,27 @@ interface Props {
 }
 const TopSelling = () => {
   const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=4")
       .then((res) => res.json())
       .then((json) => setProduct(json));
+    setLoading(false);
   }, []);
-  if (!product) {
-    return <div>Loading...</div>;
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "50px",
+        }}
+      >
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -36,28 +50,7 @@ const TopSelling = () => {
         style={{ justifyContent: "center" }}
       >
         {product.map(({ id, title, image, price }) => (
-          <Link key={id} href={`shop/${id}`}>
-            <div
-              className="card"
-              id="card-design"
-              style={{ width: "250px" }}
-              key={id}
-            >
-              <div className="card-body ">
-                <img
-                  src={image}
-                  alt={title}
-                  style={{ width: "240px", height: "300px" }}
-                ></img>
-              </div>
-
-              <div id="card-body-design" className="card-footer">
-                {title}
-                <br />
-                <b>${price}</b>
-              </div>
-            </div>
-          </Link>
+          <Product id={id} image={image} title={title} price={price} />
         ))}
       </div>
     </div>

@@ -26,10 +26,11 @@ const ProductDetailPage = ({ params: { id } }: Props) => {
   const [product, setProduct] = useState<Product | null>();
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/products/${id}`)
       .then((res) => res.json())
       .then((json) => setProduct(json));
   }, []);
+
   if (!product) {
     return <div className="spinner-border"></div>;
   }
@@ -60,15 +61,18 @@ const ProductDetailPage = ({ params: { id } }: Props) => {
         <div className="flex">
           <Rating
             readOnly
-            style={{ maxWidth: 250 }}
+            style={{ maxWidth: 150 }}
             itemStyles={myStyles}
             value={product.rating.rate}
           />
-          <span style={{ padding: "1rem", fontSize: "1.5rem" }}>
+          <span style={{ padding: ".5rem", fontSize: "1rem" }}>
             <b>{product.rating.rate}/5</b>
           </span>
         </div>
-        <h3>${product.price}</h3>
+        <h3>
+          <span className="align-super text-sm">$</span>
+          {product.price}
+        </h3>
         <p className="break-words">{product.description}</p>
         <hr></hr>
         <div className="flex">

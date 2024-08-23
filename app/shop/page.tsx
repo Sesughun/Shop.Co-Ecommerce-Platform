@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import Link from "next/link";
 import Filters from "./Filters";
+import Product from "../Product";
 
 interface Props {
   params: {
@@ -15,7 +15,7 @@ const Shop = () => {
   const [loading, setLoading] = useState(true);
   // const [selectedCategory, setSelectedCategory] = useState();
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/products`)
       .then((res) => res.json())
       .then((json) => setProduct(json));
     setLoading(false);
@@ -43,32 +43,7 @@ const Shop = () => {
         <div className="flex flex-wrap ">
           {product.map(({ id, title, image, price }) => (
             <div className="ml-3 mb-3">
-              <Link key={id} href={`shop/${id}`}>
-                <div
-                  className="card"
-                  id="card-design"
-                  style={{
-                    width: "240px",
-                    // height: "300px",
-                    borderRadius: "10px",
-                  }}
-                  key={id}
-                >
-                  <div className="card-body" style={{}}>
-                    <img
-                      src={image}
-                      alt={title}
-                      style={{ width: "240px", height: "300px", zIndex: "1" }}
-                    ></img>
-                  </div>
-
-                  <div id="card-body-design" className="card-footer">
-                    {title}
-                    <br />
-                    <b>${price}</b>
-                  </div>
-                </div>
-              </Link>
+              <Product id={id} image={image} title={title} price={price} />
             </div>
           ))}
         </div>
