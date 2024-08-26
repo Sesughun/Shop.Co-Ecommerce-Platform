@@ -42,7 +42,7 @@ const Shop = () => {
 
         <div className="flex flex-wrap ">
           {product.map(({ id, title, image, price }) => (
-            <div className="ml-3 mb-3">
+            <div key={id} className="ml-3 mb-3">
               <Product id={id} image={image} title={title} price={price} />
             </div>
           ))}
