@@ -44,6 +44,11 @@ const Header = () => {
           </span>
         </Link>
       </div>
+      <div className="p-1">
+        <Link href="/api/auth/signin">
+          <span className="p-1 m-0">Sign in</span>
+        </Link>
+      </div>
     </div>
   );
 };
