@@ -17,13 +17,7 @@ interface Product {
 interface CartItem {
   product: Product;
 }
-const AddToCart = ({ product }: CartItem) => {
-  const addItem = cartStore((state: any) => state.addItem);
-  const handleAddItem = () => {
-    const newItem = product;
-
-    addItem(newItem);
-  };
+const AddToCart = ({ handleClick }: { handleClick: any }) => {
   return (
     <button
       style={{
@@ -33,7 +27,7 @@ const AddToCart = ({ product }: CartItem) => {
         padding: "1.25rem",
         borderRadius: "12px",
       }}
-      onClick={handleAddItem}
+      onClick={handleClick}
     >
       Add To Cart
     </button>
