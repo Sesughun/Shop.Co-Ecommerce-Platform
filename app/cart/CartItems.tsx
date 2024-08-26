@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import cartStore from "../store/cart";
+import Counter from "../shop/[id]/Counter";
 
 interface Product {
   id: number;
@@ -36,6 +37,17 @@ const CartItems = () => {
                   <span className="ellipsis">{item.title}</span>
                 </div>
               </div>
+              {/* <div
+                style={{
+                  border: "solid #e2e8f0",
+
+                  borderRadius: "15px",
+                  alignContent: "center",
+                }}
+                className="bg-slate-200 mt-0"
+              >
+                <Counter />
+              </div> */}
               <div className="mt-2">
                 <b>${item.price}</b>
               </div>

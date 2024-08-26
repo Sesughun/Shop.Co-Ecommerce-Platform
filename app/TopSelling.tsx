@@ -50,7 +50,9 @@ const TopSelling = () => {
         style={{ justifyContent: "center" }}
       >
         {product.map(({ id, title, image, price }) => (
-          <Product id={id} image={image} title={title} price={price} />
+          <div key={id}>
+            <Product id={id} image={image} title={title} price={price} />
+          </div>
         ))}
       </div>
     </div>
