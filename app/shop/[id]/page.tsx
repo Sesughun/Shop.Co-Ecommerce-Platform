@@ -76,7 +76,17 @@ const ProductDetailPage = ({ params: { id } }: Props) => {
         <p className="break-words">{product.description}</p>
         <hr></hr>
         <div className="flex">
-          <div style={{ width: "30%", margin: "5px" }}>
+          <div
+            style={{
+              border: "solid gray",
+              backgroundColor: "grey",
+              borderRadius: "12px",
+              padding: "1.25rem",
+              justifyContent: "center",
+              alignContent: "center",
+              margin: "5px",
+            }}
+          >
             <Counter />
           </div>
           <div style={{ width: "70%", margin: "5px" }}>

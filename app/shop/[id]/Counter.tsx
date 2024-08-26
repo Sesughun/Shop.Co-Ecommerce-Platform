@@ -12,17 +12,7 @@ const Counter = () => {
   }
 
   return (
-    <div
-      style={{
-        border: "solid gray",
-        backgroundColor: "grey",
-        borderRadius: "12px",
-        padding: "1.25rem",
-        justifyContent: "center",
-        alignContent: "center",
-      }}
-      className="flex gap-3"
-    >
+    <div className="flex space-3">
       <button onClick={handleDecrement}>-</button>
       <div>{count}</div>
       <button onClick={handleIncrement}>+</button>
