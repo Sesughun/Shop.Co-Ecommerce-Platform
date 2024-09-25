@@ -1,6 +1,5 @@
 "use client";
-
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Rating, ThinStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -25,11 +24,15 @@ interface Product {
 }
 const ProductDetailPage = ({ params: { id } }: Props) => {
   const [product, setProduct] = useState<Product | null>();
-  const [quantity, setQuantity] = useState<number>(0);
 
   const addItem = cartStore((state: any) => state.addItem);
+  const addAmount = cartStore((state: any) => state.amountUpdate);
+
   const handleAddItem = () => {
-    addItem({ ...product, quantity: quantity });
+    addItem({ ...product });
+  };
+  const handleAmountUpdate = (e: number) => {
+    addAmount(e);
   };
 
   useEffect(() => {
@@ -88,13 +91,13 @@ const ProductDetailPage = ({ params: { id } }: Props) => {
               border: "solid gray",
               backgroundColor: "grey",
               borderRadius: "12px",
-              padding: "1.25rem",
+              padding: "0.5rem",
               justifyContent: "center",
               alignContent: "center",
               margin: "5px",
             }}
           >
-            <Counter onChange={(e: any) => setQuantity(e)} />
+            <Counter onChange={handleAmountUpdate} />
           </div>
           <div style={{ width: "70%", margin: "5px" }}>
             <AddToCart handleClick={handleAddItem} />

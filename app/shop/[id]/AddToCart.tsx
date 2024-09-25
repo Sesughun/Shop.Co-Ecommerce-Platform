@@ -20,8 +20,7 @@ interface Products {
 const AddToCart = ({ product }: Products) => {
   const addItem = cartStore((state: any) => state.addItem);
   const handleAddItem = () => {
-    const newItem = product;
-    addItem(newItem);
+    addItem(product);
   };
 
   return (

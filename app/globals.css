@@ -7,11 +7,11 @@
   padding-left: 25px;
   padding-top: 15px;
 }
-.first-segment{
+/* .first-segment{
   background-color: #F2F0F1;
   padding-left: 50px;
   padding-top: 50px;
-}
+} */
 
 p{
   font-size: 10px;
@@ -24,6 +24,10 @@ p.brand{
   height: 64px;
   margin-left: 16px;
   margin-right: 16px;
+}
+#slate{
+  background-color: #000000;
+background-image: url("data:image/svg+xml,%3Csvg width='40' height='1' viewBox='0 0 40 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v1H0z' fill='%23ffffff' fill-opacity='0.17' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 #shop-now{
   padding-left: 30px;

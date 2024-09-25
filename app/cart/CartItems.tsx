@@ -2,6 +2,7 @@
 import React from "react";
 import cartStore from "../store/cart";
 import Counter from "../shop/[id]/Counter";
+import CloseButton from "./CloseButton";
 
 interface Product {
   id: number;
@@ -14,16 +15,18 @@ interface Product {
     rate: number;
     count: number;
   };
+  qty?: number;
 }
 
 const CartItems = () => {
   const cart = cartStore((state: any) => state.cart);
+  const amounts = cartStore((state: any) => state.amount);
 
   return (
     <div className="pulse">
       <div className=" p-2 text-slate-950 divide-y">
         {cart.map((item: Product) => (
-          <div key={item.id}>
+          <div className="hover:shadow-lg" key={item.id}>
             <div className="p-2 flex justify-between">
               <div className="flex gap-2">
                 <div className="border-1 border-slate-200 flex-wrap p-2 rounded-3xl">
@@ -50,6 +53,10 @@ const CartItems = () => {
               </div> */}
               <div className="mt-2">
                 <b>${item.price}</b>
+                <span>({item.qty})</span>
+                {/* <span>
+                  <CloseButton key={item.id} />
+                </span> */}
               </div>
             </div>
           </div>

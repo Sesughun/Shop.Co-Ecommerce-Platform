@@ -8,7 +8,7 @@ export default function Home() {
     <div className="body">
       <table>
         <tbody>
-          <tr className="first-segment">
+          <tr className="bg-[#F2F0F1] pl-[50px] pt-[50px] w-2">
             <td style={{ width: "50%", padding: "50px" }}>
               <div>
                 <h1 style={{ fontWeight: "bold" }}>

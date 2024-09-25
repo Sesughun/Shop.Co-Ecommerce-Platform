@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Filters from "./Filters";
 import Product from "../Product";
+import Pagination from "./pagination";
 
 interface Props {
   params: {
@@ -11,7 +12,7 @@ interface Props {
 }
 const Shop = () => {
   const [product, setProduct] = useState([]);
-
+  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   // const [selectedCategory, setSelectedCategory] = useState();
   useEffect(() => {
@@ -20,6 +21,9 @@ const Shop = () => {
       .then((json) => setProduct(json));
     setLoading(false);
   }, []);
+  function handlePageChange(page: number) {
+    setCurrentPage(page);
+  }
   if (loading) {
     return (
       <>
@@ -40,7 +44,7 @@ const Shop = () => {
           <Filters />
         </div>
 
-        <div className="flex flex-wrap ">
+        <div className="flex flex-wrap mr-0 ">
           {product.map(({ id, title, image, price }) => (
             <div key={id} className="ml-3 mb-3">
               <Product id={id} image={image} title={title} price={price} />
@@ -48,6 +52,12 @@ const Shop = () => {
           ))}
         </div>
       </div>
+      <Pagination
+        productNumber={product.length}
+        pageSize={8}
+        onPageChange={handlePageChange}
+        currentPage={currentPage}
+      />
     </div>
   );
 };

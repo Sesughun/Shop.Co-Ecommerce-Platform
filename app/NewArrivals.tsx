@@ -11,11 +11,14 @@ const NewArrivals = () => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/category/jewelery?limit=4")
+    fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/products/category/jewelery?limit=4`
+    )
       .then((res) => res.json())
       .then((json) => setProduct(json));
     setLoading(false);
   }, []);
+
   if (loading) {
     return (
       <div
